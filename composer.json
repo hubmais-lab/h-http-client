@@ -1,0 +1,23 @@
+{
+    "name": "hubmais/h-http-client",
+    "description": "Http Client to access Api HUBMAIS",
+    "type": "library",
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hubmais\\HHttpClient\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable"
+}
