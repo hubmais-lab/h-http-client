@@ -1,6 +1,6 @@
 # H+Http Client Api PHP
 
-Esse client foi construído em PHP para a realização para se conectar a API Hubmais.
+Esse client foi construído em PHP para se conectar a API Hubmais.
 Aqui vamos mostrar como é facil a instalação e utilização.
 
 ## Requisitos
@@ -25,7 +25,7 @@ composer require hubmais/h-http-client
 ```php
 <?php
 
-use Hubmais\HHttpClient\Client;
+use Hubmais\HClient\Client;
 
 $client = new Client('<endpoint>');
 $client->setMarketplaceId('');

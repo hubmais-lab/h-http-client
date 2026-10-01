@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Hubmais\HHttpClient;
+namespace Hubmais\HClient;
 
-use Hubmais\HHttpClient\Exceptions\ClientException;
+use Hubmais\HClient\Exceptions\ClientException;
 use Psr\Http\Message\ResponseInterface;
 
 class Client

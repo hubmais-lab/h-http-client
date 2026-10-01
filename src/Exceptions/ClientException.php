@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Hubmais\HHttpClient\Exceptions;
+namespace Hubmais\HClient\Exceptions;
 
 class ClientException extends \Exception
 {

@@ -6,10 +6,23 @@
         "php": "^7.2 || ^8.0",
         "guzzlehttp/guzzle": "^7.2"
     },
+    "require-dev": {
+        "pestphp/pest": "^2.36"
+    },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Hubmais\\HHttpClient\\": "src/"
+            "Hubmais\\HClient\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hubmais\\HClient\\Providers\\HClientServiceProvider"
+            ],
+            "aliases": {
+                "HClient": "Hubmais\\HClient\\Facades\\HClient"
+            }
         }
     },
     "config": {
