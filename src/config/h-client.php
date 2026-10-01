@@ -1,17 +1,17 @@
 <?php
 return [
     # Endpoint the customization access
-    'endpoint' => env('HCHECKOUT_ENPOINT', 'https://teste.api.payments.hubmais.tec.br'),
+    'endpoint' => env('HCLIENT_ENPOINT', 'https://teste.api.payments.hubmais.tec.br'),
 
     # MarketplaceId provided by the provider
-    'marketplace_id' => '',
+    'marketplace_id' => env('HCLIENT_MARKETPLACE_ID', ''),
 
     # SellerId provided by the provider
-    'seller_id' => '',
+    'seller_id' => env('HCLIENT_SELLER_ID', ''),
 
     # Token access API
-    'token' => '',
+    'token' => env('HCLIENT_TOKEN', ''),
 
     # Timeout in seconds
-    'timeout' => 30,
+    'timeout' => env('HCLIENT_TIMEOUT', 30),
 ];
