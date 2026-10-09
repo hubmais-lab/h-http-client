@@ -104,6 +104,16 @@ class Client
         );
     }
 
+    public function options(string $uri, array $payload = []): array
+    {
+        return $this->handleResponse(
+            $this->request()->request('OPTIONS', $uri, ['json' => $payload]),
+            'OPTIONS',
+            $uri,
+            $payload
+        );
+    }
+
     protected function handleResponse(ResponseInterface $response, string $method, string $uri, array $data = []): array
     {
         if($response->getStatusCode() >= 200 && $response->getStatusCode() < 400)
