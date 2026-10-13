@@ -16,7 +16,7 @@ class HClientServiceProvider extends ServiceProvider
         $this->app->singleton(\Hubmais\HClient\Client::class, function () {
             $client = new \Hubmais\HClient\Client(
                 config('h-client.endpoint'),
-                config('h-client.timeout'),
+                intval(config('h-client.timeout', 30)),
             );
 
             $client->setToken(config('h-client.token'));
