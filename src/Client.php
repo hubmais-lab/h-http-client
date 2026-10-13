@@ -35,7 +35,7 @@ class Client
         $this->sellerId = $sellerId;
     }
 
-    protected function request(): \GuzzleHttp\Client
+    protected function client(): \GuzzleHttp\Client
     {
         $endpoint = rtrim($this->endpoint, '/');
 
@@ -46,10 +46,10 @@ class Client
             throw new ClientException('HCheckout token is not configured.', 400);
 
         $client = new \GuzzleHttp\Client([
-            'base_uri' => $endpoint,
+            'base_uri' => "$endpoint/",
             'timeout' => (int) $this->timeout?:30,
             'headers' => [
-                'User-Agent' => 'HCheckout Plugin PHP 1.0',
+                'User-Agent' => 'HClient PHP 1.0',
                 'Accept' => 'application/json',
                 'Authorization' => "Bearer $this->token"
             ],
@@ -61,13 +61,7 @@ class Client
     public function get(string $uri, array $query = []): array
     {
         return $this->handleResponse(
-            $this->request()->request(
-                'GET', 
-                $uri,
-                [
-                    'query' => $query
-                ]
-            ),
+            $this->client()->request('GET', ltrim($uri, '/'), ['query' => $query]),
             'GET',
             $uri,
             $query
@@ -77,7 +71,7 @@ class Client
     public function post(string $uri, array $payload = []): array
     {
         return $this->handleResponse(
-            $this->request()->request('POST', $uri, ['json' => $payload]),
+            $this->client()->request('POST', ltrim($uri, '/'), ['json' => $payload]),
             'POST',
             $uri,
             $payload
@@ -87,7 +81,7 @@ class Client
     public function put(string $uri, array $payload = []): array
     {
         return $this->handleResponse(
-            $this->request()->request('PUT', $uri, ['json' => $payload]),
+            $this->client()->request('PUT', ltrim($uri, '/'), ['json' => $payload]),
             'PUT',
             $uri,
             $payload
@@ -97,7 +91,7 @@ class Client
     public function delete(string $uri, array $payload = []): array
     {
         return $this->handleResponse(
-            $this->request()->request('DELETE', $uri, ['json' => $payload]),
+            $this->client()->request('DELETE', ltrim($uri, '/'), ['json' => $payload]),
             'DELETE',
             $uri,
             $payload
@@ -107,7 +101,7 @@ class Client
     public function options(string $uri, array $payload = []): array
     {
         return $this->handleResponse(
-            $this->request()->request('OPTIONS', $uri, ['json' => $payload]),
+            $this->client()->request('OPTIONS', ltrim($uri, '/'), ['json' => $payload]),
             'OPTIONS',
             $uri,
             $payload
